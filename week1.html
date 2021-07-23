@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script>
+
+<!-- Todo list scripting and Vue script-->
+Vue.component('todo-item', {
+  template: '\
+    <li>\
+      {{ title }}\
+      <button v-on:click="$emit(\'remove\')">Remove</button>\
+    </li>\
+  ',
+  props: ['title']
+})
+
+document.addEventListener('DOMContentLoaded', function () {
+new Vue({
+  el: '#todo-list-example',
+  data: {
+    newTodoText: '',
+    todos: [
+      {
+        id: 1,
+        title: 'Assignment 1',
+      },
+      {
+        id: 2,
+        title: 'Assignment 2',
+      },
+      {
+        id: 3,
+        title: 'Assignment 3'
+      }
+    ],
+    nextTodoId: 4
+  },
+  methods: {
+    addNewTodo: function () {
+      this.todos.push({
+        id: this.nextTodoId++,
+        title: this.newTodoText
+      })
+      this.newTodoText = ''
+    }
+  }
+})
+})
+  </script>
+  
+
+  
+    <title>Self-Driving car</title>
+    <style>
+
+
+body {
+    font-size: 1rem;
+    font-weight: normal;
+    color: #252E36;
+    text-align: left;
+    background-color: #E8E4DD;
+}
+
+
+      /*Paragraph adjustment: change the font style to Times New Roman*/
+      p.serif {
+        font-family: "Times New Roman", Times, serif;
+      }
+
+      /*表格*/
+      table,
+      th,
+      td {
+        border: 3px solid black;
+        color: black;
+      }
+
+      /*The css margin attribute defines the space around the element*/
+      div.margin {
+        margin-top: 100px;
+        margin-bottom: 100px;
+        margin-right: 100px;
+        margin-left: 100px;
+      }
+      
+      
+      </style>
+  </head>
+
+  <body>
+    <div class="margin">
+
+
+      <h1>
+        General Information
+      </h1>
+      <!-- inline css and image Html tag 1 --> 
+      <img src="https://seopic.699pic.com/photo/40097/9591.jpg_wh1200.jpg" alt="self-driving car" width="1000" />
+      <p class="serif">
+
+        At this stage, self-driving cars are slowly becoming popular. It began to slowly affect people's lives. As an unmanned transportation vehicle, self-driving cars can drive autonomously without human operation. Since the 1970s, many countries have begun to conduct research on driverless cars, and some breakthrough developments have been made. Autonomous driving is not a single technology, but a highly complex system composed of many systems. They are algorithm, client and cloud platform. Although it is not a mature technology for us now, I believe it will be applied in our lives in the future.
+      </p>
+      
+      <!-- Unordered List Html tag 2 -->
+      <ul>
+        <li>Reeduce traffic accidents: More than 1.2 million people die in traffic accidents worldwide each year. If the era of autonomous vehicles comes, these numbers will be significantly reduced.</li>
+        <li>Relieve congestion: Self-driving car can adjust the driving speed through simulation research to avoid traffic congestion.</li>
+        <li>Relieve parking difficulties: Self-driving car can reduce the space reserved for people by 10 cm on each side, which will save space.</li>
+       
+      </ul>
+      
+      
+      
+      <!-- Tables Html tag 3 -->
+      <table border="1">
+        <th colspan="7">Self-driving classification</th>
+        <tr>
+          <td>National Highway Traffic Safety Administration</td>
+          <td>L0</td>
+          <td>L1</td>
+          <td>L2</td>
+          <td>L3</td>
+          <td>L4</td>
+          <td>L5</td>
+        </tr>
+        <tr>
+          <td>SAE</td>
+          <td>No automation</td>
+          <td>Driving support</td>
+          <td>Partially automated</td>
+          <td>Conditional automation</td>
+          <td>Highly automated</td>
+          <td>Fully automated</td>
+        </tr>
+        <tr>
+          <td>Define SAE</td>
+          <td>The driver is completely controlled by the host vehicle.</td>
+          <td>The driver needs full control of speed, throttle, brakes and steering wheel. The vehicle only informs and assists the driver in certain situations. </td>
+          <td>The vehicle has more driver assistance systems. But the driver still has to maintain control of the car and always pay attention to the traffic situation.</td>
+          <td>Autonomous driving under specific traffic and weather conditions. If the conditions are no longer suitable for the system to handle, it will notify the driver so that he can immediately regain control. </td>
+          <td>Without the help of the driver, the vehicle can fully perform all main driving functions, but it may sometimes require driver intervention.</td>
+          <td>The vehicle does not need a driver at all, no more control elements such as steering wheel or pedals, and can react like a human driver. </td>
+        </tr>
+
+      </table>
+
+      
+      <!-- forms Html tag 4 -->
+      <form>
+        <h4>
+          Do you support autonomous driving?
+        </h4>
+        <input type="radio" name="support" value="support">support<br>
+        <input type="radio" name="support" value="not support">not support<br>
+
+        <input type="submit" value= "Submit">
+
+      </form>
+     
+     
+     <p id="score">xueshengchengji</p >
+      <p id="dtime">Here is the time</p >
+
+<!-- Test JS button and button Html tag 5-->
+<button type="button" onclick="myFunction()">show time</button>
+
+
+<!-- Todo list -->
+<div id="todo-list-example">
+  <form v-on:submit.prevent="addNewTodo">
+    <label for="new-todo">Add a todo</label>
+    <input
+      v-model="newTodoText"
+      id="new-todo"
+      placeholder="E.g. Feed the cat"
+    >
+    <button>Add</button>
+  </form>
+  <ul>
+    <li
+      is="todo-item"
+      v-for="(todo, index) in todos"
+      v-bind:key="todo.id"
+      v-bind:title="todo.title"
+      v-on:remove="todos.splice(index, 1)"
+    ></li>
+  </ul>
+</div>
+  
+  
+    </div>
+  </body>
+<!-- JS -->
+<script>
+var a = 70;
+var b = 89;
+var c = 44;
+var d = 56;
+var e = 73;
+var sum = a + b + c + d + e;
+var avg = sum/5;
+document.getElementById("score").innerHTML = "The sum score is: " + sum + " and the average score is: " + avg;
+
+
+function myFunction() {
+    window.alert(Date());
+}
+</script>
+
+</html>
