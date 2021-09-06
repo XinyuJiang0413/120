@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-on:mouseover</title>
+		<script src="https://cdn.bootcss.com/vue/2.6.11/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			<ul>
+				<li v-for="(item,index) in c">{{item}}={{index}}</li>
+			</ul>
+			<ul>
+				<li v-for="(key,value) in product">{{key}}={{value}}</li>
+			</ul>
+			<table border="1">
+				<tr>
+					
+				    <td>id</td>
+					<td>name</td>
+					<td>price</td>
+				</tr>
+				<tr v-for="(product,index) in products">
+				
+				<td>{{product.id}}</td>
+				<td>{{product.name}}</td>
+				<td>{{product.price}}</td>
+			</tr>
+			</table>
+		</div>
+	</body>
+	<script type="application/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+				c:[1,2,3,4,5],
+				product:{
+					id:1,
+					name:"Laptop",
+					price:1000
+				},
+				products:[
+				{id:1,name:"Laptop",price:1000},
+				{id:2,name:"Phone",price:2000},
+				{id:3,name:"mp3",price:100}
+				]
+			},
+			methods:{
+				
+			}
+		})
+	</script>
+</html>
+
+
+   
