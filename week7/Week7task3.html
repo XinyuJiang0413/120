@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="example">
+        <parent></parent>
+       </div>
+    <script>
+        var childNode = {
+         template: `<button @click="incrementCounter">{{ counter }}</button>`,
+         data(){
+          return {
+           counter: 0
+          }
+         },
+         methods:{
+          incrementCounter(){
+           this.counter ++;
+           this.$emit('increment');
+          }
+         },
+        }
+        var parentNode = {
+         template: `
+         <div class="parent">
+          <p>{{total}}</p>
+          <child @increment="incrementTotal"></child>
+          <child @increment="incrementTotal"></child>
+         </div>
+         `,
+         components: {
+          'child': childNode
+         },
+         data(){
+          return {
+           'total':0
+          }
+         },
+         methods:{
+          incrementTotal(){
+           this.total ++;
+          }
+         }
+        };
+        
+        new Vue({
+         el: '#example',
+         components: {
+          'parent': parentNode
+         }
+        })
+        </script>
+</body>
+</html>

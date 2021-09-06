@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    
+    <div id = "app">
+    <detail></detail> 
+    <img src="https://www.australia.com/content/dam/assets/photograph/digital/1/c/0/q/t/2240453.jpg" width="500" height="350">
+    <br><address-detail></address-detail>
+        
+    </div>
+    
+     
+     
+     <script>
+         
+        
+        const app = Vue.createApp({});
+
+        app.component("detail",
+        {
+            
+            template:'<h2>Melbourne, Australia</h2>'              
+        })
+        
+
+        app.component("address-detail",
+        {
+            
+            template:'<h3> 30 eley glen waverley</h3>'              
+        })
+
+        
+        app.mount('#app')
+
+     </script>
+    
+
+</body>
+</html>

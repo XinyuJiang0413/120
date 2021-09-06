@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id = "app">
+        <my-address></my-address> 
+        <my-suburban></my-suburban>
+    </div>
+</body>
+    <script>
+
+
+        const myAddress = {
+            
+            template:'<h2>My home at Glen Waverley.</h2>'
+        }
+
+        const mySuburban ={
+            template:'<h3>39 eley road</h3>'
+        }
+
+       
+
+        const app = Vue . createApp({
+            components:{
+                "my-address": myAddress,
+                "my-suburban":mySuburban
+            }
+        })
+         app.mount("#app")
+    </script>
+</html>
