@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleSheet" href="style.css">
+    <title>Home</title>
+</head>
+
+<body>
+ 
+	<div id="wrapper">
+        <header id="header">
+          <div class="inner">
+              <a href="index.html" class="logo">
+                <span class="symbol"><img src="images/logo.png" alt="" /></span><span class="title">SIT120 Switch Game Reviewer</span>
+              </a>
+<aside>          
+<div class="input-group rounded" id="search">
+  <input type="search" v-model="game" @keyup.enter = "searchGame" placeholder="Game Search" aria-label="Search"/>
+  <button class="Button1">Go!</button>
+  <button class ="Button1">Log in</button> 
+</div>
+</aside>
+
+          </div>
+        </header>
+
+
+         <aside>
+
+                   <ul>
+          <li><a href="Index.html">Home</a></li>
+          <li><a href="Games.html">Games</a></li>
+          <li><a href="Registration.html">Registration</a></li>
+          <li><a href="contact.html">Contact Me</a></li>
+                   </ul>
+                  </aside>
+
+        <div id="main">
+          <div class="inner">
+            <header>
+              <h1>Welcome to SWITCH Game Homepage</h1>
+              <h3>Introduction</h3>
+              <p>Due to the outbreak of COVID-19, people spend a lot of time at home. So the purpose of our website is to recommend some fun games on SWITCH. This way people will not be so bored at home. You can download the game you want to play through the recommendation on the Games page.</p>
+              <br>
+              <br>
+            </header>
+
+            <section class="tiles1">
+                <div id="mask">
+                  <div class="center">
+                   <!-- image -->
+                    <img :src = "imgArr[index]" @click="next" alt="" width="700" height="400" >
+                  </div>
+                </div>  
+            </section>
+          </div>
+        </div>
+                  
+      <footer>
+        <div class="inner">
+          <p>&copy; SIT120 Switch Game Reviewer</p>
+      </div>
+      </footer>   
+  </div>
+</body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    var app = new Vue({
+      el: "#mask",
+      data: {
+        imgArr:[
+          "./images/00.jpg",
+          "./images/01.jpg",
+          "./images/02.jpg",
+        ],
+        index:0
+        
+      },
+      methods: {
+        next:function(){
+          if(this.index < 2){
+            this.index++;
+          } else{
+            this.index = 0;
+          }
+        }
+      }
+    })
+  </script>
+    <script>
+    var app = new Vue({
+      el: "#search",
+      data: {
+        game:'',
+        gameArr:[
+          "animal",
+          "crossing",
+          "overcooked",
+          "legend",
+          "zelda",
+          "super",
+          "mario",
+          "odyssey"
+        ]
+      },
+      methods: {
+        searchGame:function(){
+          var temp = this.game;
+          var low = temp.toLowerCase();
+          console.log(low);
+          for (let i =0; i<this.gameArr.length; i++) {
+            if (low === this.gameArr[i]){
+              window.location.href = 'Games.html';
+            } 
+          }
+        }
+      }
+    })
+  </script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="todoapp" class=fields>
+        <div class="field half">
+          <input v-model="inputValue" type="text" @keyup.enter="add" autofocus="autofocus" autocomplete="off" placeholder="Opinion column">
+        </div>
+        <section class = "main">
+            <ul class="todo-list">
+              <li class="todo" v-for="(item,index) in list">
+                <div>
+                  <span>{{index+1}}.</span>
+                  <label>{{item}}</label>
+                </div>
+              </li>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    var app = new Vue({
+      el: "#todoapp",
+      data: {
+        list:[
+        ],
+        inputValue:"Opinion1: "
+      },
+      methods: {
+        add:function(){
+          this.list.push(this.inputValue);
+        }
+      }
+    })
+  </script>
+</html>
