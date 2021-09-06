@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        SIT120 week6 task1
+        </h1>
+        <br>
+        
+          <fieldset>
+          <h2>Form User</h2>
+          
+          <div id="name">
+              <label>Name:</label>
+              <br>
+                <input type="text" v-model="name_1">
+              
+          </div>
+          
+            <div id="PassWord">
+              <label>PassWord:</label>
+              <br>
+              <input type="password" v-model="PassWord_1">  
+        
+              
+          </div>
+          
+              <div id="Email">
+              <label>Email:</label>
+              <br>
+                <input type="text" v-model="Email_1">
+              
+          </div>
+          
+          </fieldset>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    
+new Vue({
+    el:"#name",
+    data(){
+        return{
+            name_1:""
+        }
+    }
+})
+
+new Vue({
+    el:"#PassWord",
+    data(){
+        return{
+            PassWord_1:""
+        }
+    }
+})
+
+new Vue({
+    el:"#Email",
+    data(){
+        return{
+            Email_1:""
+        }
+    }
+})
+
+</script>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="styleSheet" href="CSS.css">
+</head>
+<body>
+    <h1>SIT120 Task2</h1>
+    <fieldset>
+    <div id="v-model-multiple-checkboxes" class="demo">
+        <input type="checkbox" id="simon" value="Simon" v-model="checkedNames" @change="checkOne"/>
+        <label for="simon">Simon</label>
+        <input type="checkbox" id="amy" value="Amy" v-model="checkedNames" @change="checkOne"/>
+        <label for="amy">Amy</label>
+        <input type="checkbox" id="johnson" value="Johnson" v-model="checkedNames" @change="checkOne"/>
+        <label for="johnson">Johnson</label>
+        <input type="checkbox" id="all" value="all" v-model="isCheck" @change="checkAll" />
+        <label for="all">all</label>
+        <br />
+        <p>Checked names: {{checkedNames}}</p>
+      </div>
+    </fieldset>
+</body>
+<script src="https://unpkg.com/vue@next"></script>
+<script>
+    Vue.createApp({
+  data() {
+    return {
+        isCheck:false,
+      checkedNames: []
+    }
+  },
+  methods:{
+    checkOne(){
+            this.isCheck=this.checkedNames.length===3;
+        
+        },
+    checkAll(){
+            this.checkedNames=this.isCheck?["Simon","Amy","Johnson"]:[];
+    }
+  }
+}).mount('#v-model-multiple-checkboxes')
+</script>
+</html>
